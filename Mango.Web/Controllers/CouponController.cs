@@ -26,6 +26,10 @@ namespace Mango.Web.Controllers
             {
                 list = JsonConvert.DeserializeObject<List<CouponDTO>>(Convert.ToString(response.Result));
             }
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
 
             return View(list);
         }

@@ -102,8 +102,6 @@ namespace Mango.Web.Controllers
 
         private async Task SignInUser(LoginResponseDTO model)
         {
-
-
             var handler = new JwtSecurityTokenHandler();
 
             var jwt = handler.ReadJwtToken(model.Token);
