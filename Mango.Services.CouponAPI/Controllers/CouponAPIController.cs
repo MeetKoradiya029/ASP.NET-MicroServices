@@ -107,7 +107,6 @@ namespace Mango.Services.CouponAPI.Controllers
 
                 _commonRepo.Coupon.Add(obj);
                 _commonRepo.Save();
-
                 _response.Result = _mapper.Map<CouponDTO>(obj);
 
             }
