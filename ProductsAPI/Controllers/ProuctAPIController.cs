@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Mango.Services.ProductsAPI.Models.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProductsAPI.Data;
@@ -11,6 +12,7 @@ namespace ProductsAPI.Controllers
 {
     [Route("api/product")]
     [ApiController]
+    [Authorize]
     public class ProuctAPIController : ControllerBase
     {
         private ICommonRepository _commonRepo;
