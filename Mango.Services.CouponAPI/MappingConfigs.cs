@@ -12,8 +12,8 @@ namespace Mango.Services.CouponAPI
             {
                 config.CreateMap<CouponDTO, Coupon>();
                 config.CreateMap<Coupon, CouponDTO>();
-                /*config.CreateMap<Product, ProductDTO>()
-                .ForMember(x => x.ProductCode1, y => y.MapFrom(x => x.ProductCode));*/
+                /*config.CreateMap<Coupon, CouponDTO>()
+                .ForMember(x => x.CouponCode1, y => y.MapFrom(x => x.CouponCode));*/
             });
 
             return mappingConfig;

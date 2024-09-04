@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Mango.Services.ProductsAPI.Models.DTO;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProductsAPI.Data;
@@ -12,7 +11,6 @@ namespace ProductsAPI.Controllers
 {
     [Route("api/product")]
     [ApiController]
-    [Authorize]
     public class ProuctAPIController : ControllerBase
     {
         private ICommonRepository _commonRepo;
@@ -66,8 +64,7 @@ namespace ProductsAPI.Controllers
 
         [HttpPut]
         [Route("edit")]
-        [Authorize(Roles = "ADMIN")]
-        public ResponseDTO Edit([FromBody] ProductDTO productDTO)
+        public ResponseDTO Edit(ProductDTO productDTO)
         {
             try
             {
@@ -87,8 +84,7 @@ namespace ProductsAPI.Controllers
 
         [HttpPost]
         [Route("add")]
-        [Authorize(Roles = "ADMIN")]
-        public ResponseDTO Add([FromBody] ProductDTO productDTO)
+        public ResponseDTO Add(ProductDTO productDTO)
         {
             try
             {
@@ -109,7 +105,6 @@ namespace ProductsAPI.Controllers
 
         [HttpDelete]
         [Route("delete/{id:int}")]
-        [Authorize(Roles = "ADMIN")]
         public ResponseDTO Delete (int id)
         {
             try
