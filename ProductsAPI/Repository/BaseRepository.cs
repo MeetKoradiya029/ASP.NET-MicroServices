@@ -18,14 +18,15 @@ namespace ProductsAPI.Repository
 
         public void Add(T entity)
         {
-            _db.Add(entity);
+            dbSet.Add(entity);
         }
 
         public T Get(Expression<Func<T, bool>> filter)
         {
             IQueryable<T> query = dbSet;
-            query = query.Where(filter);
-            return query.FirstOrDefault();   
+            query.Where(filter);
+            return query.FirstOrDefault();
+            
         }
 
         public IEnumerable<T> GetAll()
@@ -36,12 +37,12 @@ namespace ProductsAPI.Repository
 
         public void Remove(T entity)
         {
-            _db.Remove(entity);
+            dbSet.Remove(entity);
         }
 
         public void RemoveRange(IEnumerable<T> entities)
         {
-            _db.RemoveRange(entities);
+            dbSet.RemoveRange(entities);
         }
     }
 }

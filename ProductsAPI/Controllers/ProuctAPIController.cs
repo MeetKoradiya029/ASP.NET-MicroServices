@@ -66,7 +66,8 @@ namespace ProductsAPI.Controllers
 
         [HttpPut]
         [Route("edit")]
-        public ResponseDTO Edit(ProductDTO productDTO)
+        [Authorize(Roles = "ADMIN")]
+        public ResponseDTO Edit([FromBody] ProductDTO productDTO)
         {
             try
             {
@@ -86,7 +87,8 @@ namespace ProductsAPI.Controllers
 
         [HttpPost]
         [Route("add")]
-        public ResponseDTO Add(ProductDTO productDTO)
+        [Authorize(Roles = "ADMIN")]
+        public ResponseDTO Add([FromBody] ProductDTO productDTO)
         {
             try
             {
@@ -107,6 +109,7 @@ namespace ProductsAPI.Controllers
 
         [HttpDelete]
         [Route("delete/{id:int}")]
+        [Authorize(Roles = "ADMIN")]
         public ResponseDTO Delete (int id)
         {
             try
