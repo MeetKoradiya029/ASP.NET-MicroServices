@@ -24,9 +24,9 @@ namespace ProductsAPI.Repository
         public T Get(Expression<Func<T, bool>> filter)
         {
             IQueryable<T> query = dbSet;
-
-            query = query.Where(filter);
+            query.Where(filter);
             return query.FirstOrDefault();
+            
         }
 
         public IEnumerable<T> GetAll()
