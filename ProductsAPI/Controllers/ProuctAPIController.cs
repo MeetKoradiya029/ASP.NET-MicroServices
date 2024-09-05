@@ -34,8 +34,6 @@ namespace ProductsAPI.Controllers
                 IEnumerable<Product> productList = _commonRepo.Product.GetAll();
                 var result = _mapper.Map<IEnumerable<ProductDTO>>(productList);
                 _responseDto.Result = result;
-                
-
             } catch (Exception ex)
             {
                 _responseDto.IsSuccess = false;
