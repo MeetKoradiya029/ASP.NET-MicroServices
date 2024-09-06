@@ -46,5 +46,7 @@ namespace Mango.Services.ShoppingCartAPI.Repository
         {
             dbSet.RemoveRange(entities);
         }
+
+       
     }
 }

@@ -15,9 +15,9 @@ namespace Mango.Services.ShoppingCartAPI.Repository
 
         }
 
-        public void Save()
+        public async void Save()
         {
-            _db.SaveChanges();  
+            await _db.SaveChangesAsync();  
         }
     }
 }

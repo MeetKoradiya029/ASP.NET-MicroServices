@@ -13,10 +13,16 @@ namespace Mango.Services.ShoppingCartAPI.Repository
             _db = db;
         }
 
-        public void Update(CartDTO cart)
+
+
+        public void UpdateCartDetails(CartDetailsDTO cartDetails)
         {
-            _db.Update(cart.CartHeader);
-            _db.Update(cart.CartDetails);
+            _db.Update(cartDetails);
+        }
+
+        public void UpdateCartHeader(CartHeaderDTO cartHeader)
+        {
+            _db.Update(cartHeader);
         }
     }
 }

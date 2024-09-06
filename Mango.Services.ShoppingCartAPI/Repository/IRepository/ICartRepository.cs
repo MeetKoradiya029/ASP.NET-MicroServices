@@ -5,6 +5,7 @@ namespace Mango.Services.ShoppingCartAPI.Repository.IRepository
 {
     public interface ICartRepository:IBaseRepository<CartDTO>
     {
-        public void Update(CartDTO cart); 
+        public void UpdateCartHeader(CartHeaderDTO cartHeader); 
+        public void UpdateCartDetails(CartDetailsDTO cartDetails); 
     }
 }
