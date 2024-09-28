@@ -54,7 +54,9 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<ICommonRepositry, CommonRepository>();
 builder.Services.AddHttpClient("Product", p => p.BaseAddress =
         new Uri(builder.Configuration["ServiceUrls:ProductAPI"]));
+builder.Services.AddHttpClient("Coupon", c => c.BaseAddress = new Uri(builder.Configuration["ServiceUrls:CouponAPI"]);
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICouponService, CouponService>();
 
 builder.AddAppAuthentication();
 builder.Services.AddAuthorization();
