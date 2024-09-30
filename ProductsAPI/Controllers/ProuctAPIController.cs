@@ -15,7 +15,6 @@ namespace ProductsAPI.Controllers
 {
     [Route("api/product")]
     [ApiController]
-    [Authorize]
     public class ProuctAPIController : ControllerBase
     {
         private ICommonRepository _commonRepo;
@@ -69,6 +68,7 @@ namespace ProductsAPI.Controllers
 
         [HttpGet]
         [Route("{id:int}")]
+        [Authorize]
         public ResponseDTO Get(int id)
         {
             try
