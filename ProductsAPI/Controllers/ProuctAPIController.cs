@@ -47,7 +47,7 @@ namespace ProductsAPI.Controllers
                     connection.Open();
                     string query = "SELECT * FROM Products";
 
-                    var product  = await connection.QueryAsync<Product>(query);
+                    IEnumerable<Product> product  = await connection.QueryAsync<Product>(query);
 
                     if (product != null)
                     {

@@ -21,6 +21,7 @@ namespace Mango.Services.ShoppingCartAPI.Controllers
         private ICommonRepositry _commonRepository;
         private readonly AppDbContext _db;
         private IProductService _productService;
+        private ICouponService _couponService;
          
 
 
@@ -28,13 +29,15 @@ namespace Mango.Services.ShoppingCartAPI.Controllers
                 IMapper mapper, 
                 ICommonRepositry commonRepositry, 
                 IProductService productService,
-                AppDbContext db
+                ICouponService couponService,
+        AppDbContext db
             )
         {
             _mapper = mapper;
             _commonRepository = commonRepositry;
             _db = db;
             _productService = productService;
+            _couponService = couponService;
             _responseDTO = new ResponseDTO();
         }
 
@@ -57,6 +60,16 @@ namespace Mango.Services.ShoppingCartAPI.Controllers
                 {
                     item.Product = products.FirstOrDefault(p => p.ProductId == item.ProductId);
                     cart.CartHeader.CartTotal += (item.Count * item.Product.Price);
+                }
+
+                if (!string.IsNullOrEmpty(cart.CartHeader.CouponCode))
+                {
+                    CouponDTO coupon = await _couponService.GetCoupon(cart.CartHeader.CouponCode);
+                    if (coupon != null && cart.CartHeader.CartTotal > coupon.MinAmount)
+                    {
+                        cart.CartHeader.CartTotal -= coupon.DiscountAmount;
+                        cart.CartHeader.Discount = coupon.DiscountAmount;
+                    }
                 }
 
                 _responseDTO.Result = cart;
