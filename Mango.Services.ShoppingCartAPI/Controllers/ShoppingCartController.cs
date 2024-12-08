@@ -132,6 +132,23 @@ namespace Mango.Services.ShoppingCartAPI.Controllers
             return _responseDTO;
         }
 
+        [HttpPost("ApplyCoupon")]
+        public async Task<object> ApplyCoupon([FromBody] CartDTO cartDTO)
+        {
+            try
+            {
+                
+
+            } catch (Exception e)
+            {
+                _responseDTO.IsSuccess = false;
+                _responseDTO.Message = e.Message;
+            }
+
+            return _responseDTO;
+        }  
+
+
         [HttpPost("CartDelete")]
         public async Task<ResponseDTO> RemoveCart([FromBody]int cartDetailsId)
         {
