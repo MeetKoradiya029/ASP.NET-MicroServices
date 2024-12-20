@@ -27,7 +27,9 @@ namespace Mango.Services.CouponAPI.Extensions
                     ValidateIssuer = true,
                     ValidIssuer = issuer,
                     ValidAudience = audience,
-                    ValidateAudience = true
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero
                 };
             });
 
