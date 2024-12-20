@@ -124,9 +124,11 @@ namespace ProductsAPI.Controllers
                     {
                         _responseDto.IsSuccess = false;
                         _responseDto.Message = "Product not found";
-                    }
+						//_responseDto.Message = "Product not found";
 
-                }
+					}
+
+				}
                 //_commonRepo.Product.Update(product);
                 //_commonRepo.Save();
                 
